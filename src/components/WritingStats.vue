@@ -7,12 +7,13 @@
     <StatItem
       v-if="bestHour"
       :value="`${String(bestHour.hour).padStart(2, '0')}:00`"
-      :label="`${bestHour.wordsPerHour} w/h (${bestHour.minutes} min)`"
+      :label="`${bestHour.wordsPerHour} w/h`"
+      :sublabel="`${bestHour.minutes} min`"
     />
 
     <StatItem v-else value="—" label="analytics" />
 
-    <StatItem :value="stats.readingTimeMinutes" label="min read" />
+    <!--<StatItem :value="stats.readingTimeMinutes" label="min read" /> -->
   </div>
 </template>
 
@@ -41,7 +42,15 @@ defineProps<Props>();
 .stats-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 40px;
   padding: 12px 24px;
+}
+
+@media (max-width: 640px) {
+  .stats-container {
+    gap: 12px 20px;
+    padding: 10px 16px;
+  }
 }
 </style>

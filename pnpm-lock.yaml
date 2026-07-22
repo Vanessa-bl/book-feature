@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@tiptap/extension-placeholder':
+    specifier: ^3.28.0
+    version: 3.28.0(@tiptap/extensions@3.28.0)
   '@tiptap/pm':
     specifier: ^3.28.0
     version: 3.28.0
@@ -456,6 +459,14 @@ packages:
       '@tiptap/core': 3.28.0
     dependencies:
       '@tiptap/core': 3.28.0(@tiptap/pm@3.28.0)
+    dev: false
+
+  /@tiptap/extension-placeholder@3.28.0(@tiptap/extensions@3.28.0):
+    resolution: {integrity: sha512-zueiqNeCHOshDa8dGGSa/0cOBZkMjPrxQhemjF4tj2yZ6EeWHBPtCE5h/uQCagEePxsoaJtvaCRh88199zrgBw==}
+    peerDependencies:
+      '@tiptap/extensions': 3.28.0
+    dependencies:
+      '@tiptap/extensions': 3.28.0(@tiptap/core@3.28.0)(@tiptap/pm@3.28.0)
     dev: false
 
   /@tiptap/extension-strike@3.28.0(@tiptap/core@3.28.0):

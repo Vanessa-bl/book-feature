@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { useEditor, EditorContent } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
+import Placeholder from "@tiptap/extension-placeholder";
 import { computed, watch } from "vue";
 
 import { useEditorStats } from "@/composables/useEditorStats";
@@ -33,7 +34,12 @@ const { sessions } = useWritingSessions();
 const { onTextChange, bestHour } = useWritingVelocity(sessions);
 
 const editor = useEditor({
-  extensions: [StarterKit],
+  extensions: [
+    StarterKit,
+    Placeholder.configure({
+      placeholder: "Write for a minute to see your pace in Analytics",
+    }),
+  ],
   content: "",
   autofocus: true,
 });
@@ -149,6 +155,14 @@ const titleModel = computed({
 
 .editor-content .ProseMirror-trailingBreak {
   display: none;
+}
+
+.editor-content .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #bbb;
+  pointer-events: none;
+  height: 0;
 }
 
 .stats-bar {

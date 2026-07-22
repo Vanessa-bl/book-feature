@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import BookEditor from "@/components/BookEditor.vue";
 </script>
 
 <template>
-  <HelloWorld />
+  <BookEditor />
 </template>
